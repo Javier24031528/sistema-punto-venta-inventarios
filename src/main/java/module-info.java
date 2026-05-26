@@ -1,6 +1,7 @@
 module com.franco.sistemapuntoventa {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.franco.sistemapuntoventa to javafx.fxml;
