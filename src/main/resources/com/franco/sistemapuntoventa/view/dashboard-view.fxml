@@ -18,7 +18,8 @@
 
     <Label text="Bienvenido Administrador"/>
 
-    <Button text="Productos"/>
+    <Button text="Productos"
+            onAction="#abrirProductos"/>
     <Button text="Ventas"/>
     <Button text="Compras"/>
     <Button text="Proveedores"/>
