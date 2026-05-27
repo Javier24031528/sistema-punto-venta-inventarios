@@ -8,6 +8,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 public class LoginController {
 
     @FXML
@@ -34,7 +40,27 @@ public class LoginController {
         Usuario usuarioEncontrado = usuarioDAO.validarLogin(usuario, contrasenaHash);
 
         if (usuarioEncontrado != null) {
-            mostrarAlerta("Acceso correcto", "Bienvenido: " + usuarioEncontrado.getUsername());
+
+            try {
+
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/com/franco/sistemapuntoventa/view/dashboard-view.fxml")
+                );
+
+                Parent root = loader.load();
+
+                Stage stage = (Stage) txtUsuario.getScene().getWindow();
+
+                stage.setScene(new Scene(root));
+                stage.setTitle("Dashboard");
+                stage.show();
+
+            } catch (IOException e) {
+
+                e.printStackTrace();
+
+            }
+
         } else {
             mostrarAlerta("Acceso denegado", "Usuario o contraseña incorrectos.");
         }
