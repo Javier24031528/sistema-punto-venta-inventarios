@@ -63,5 +63,32 @@ public class DashboardController {
         }
 
     }
+    public void abrirProveedores(ActionEvent event) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/com/franco/sistemapuntoventa/view/proveedores-view.fxml"
+                    )
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Proveedores");
+            stage.show();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
 
 }
