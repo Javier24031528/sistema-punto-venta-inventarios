@@ -25,6 +25,8 @@
             onAction="#abrirCategorias"/>
     <Button text="Proveedores"
             onAction="#abrirProveedores"/>
+    <Button text="Compras"
+            onAction="#abrirCompras"/>
 
     <Label text="Productos registrados: 0"/>
     <Label text="Ventas registradas: 0"/>

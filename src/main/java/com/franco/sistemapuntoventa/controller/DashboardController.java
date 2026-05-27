@@ -91,4 +91,32 @@ public class DashboardController {
 
     }
 
+    public void abrirCompras(ActionEvent event) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource(
+                            "/com/franco/sistemapuntoventa/view/compras-view.fxml"
+                    )
+            );
+
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.setTitle("Compras");
+            stage.show();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+    }
+
 }
