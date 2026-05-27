@@ -5,6 +5,7 @@ import com.franco.sistemapuntoventa.util.ConexionBD;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CompraDAO {
@@ -128,6 +129,35 @@ public class CompraDAO {
             e.printStackTrace();
 
         }
+
+    }
+
+    public int contarCompras() {
+
+        String sql = """
+            select count(*) total
+            from compras
+            """;
+
+        try (PreparedStatement ps =
+                     conexion.prepareStatement(sql);
+
+             ResultSet rs =
+                     ps.executeQuery()) {
+
+            if (rs.next()) {
+
+                return rs.getInt("total");
+
+            }
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return 0;
 
     }
 

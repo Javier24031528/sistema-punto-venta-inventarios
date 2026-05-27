@@ -193,4 +193,33 @@ public class ProductoDAO implements CrudDAO<Producto> {
 
     }
 
+    public int contarProductos() {
+
+        String sql = """
+            select count(*) total
+            from productos
+            """;
+
+        try (PreparedStatement ps =
+                     conexion.prepareStatement(sql);
+
+             ResultSet rs =
+                     ps.executeQuery()) {
+
+            if (rs.next()) {
+
+                return rs.getInt("total");
+
+            }
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return 0;
+
+    }
+
 }

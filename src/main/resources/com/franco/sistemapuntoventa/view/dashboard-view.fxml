@@ -20,7 +20,8 @@
 
     <Button text="Productos"
             onAction="#abrirProductos"/>
-    <Button text="Ventas"/>
+    <Button text="Ventas"
+            onAction="#abrirVentas"/>
     <Button text="Categorías"
             onAction="#abrirCategorias"/>
     <Button text="Proveedores"
@@ -28,8 +29,8 @@
     <Button text="Compras"
             onAction="#abrirCompras"/>
 
-    <Label text="Productos registrados: 0"/>
-    <Label text="Ventas registradas: 0"/>
-    <Label text="Compras registradas: 0"/>
+    <Label fx:id="lblProductos"/>
+    <Label fx:id="lblVentas"/>
+    <Label fx:id="lblCompras"/>
 
 </VBox>
