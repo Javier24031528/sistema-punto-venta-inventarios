@@ -21,7 +21,8 @@
     <Button text="Productos"
             onAction="#abrirProductos"/>
     <Button text="Ventas"/>
-    <Button text="Compras"/>
+    <Button text="Categorías"
+            onAction="#abrirCategorias"/>
     <Button text="Proveedores"/>
 
     <Label text="Productos registrados: 0"/>
