@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.franco.sistemapuntoventa.observer.InventarioObservable;
+
 public class CompraDAO {
 
     private final Connection conexion;
@@ -123,6 +125,8 @@ public class CompraDAO {
             );
 
             psStock.executeUpdate();
+
+            InventarioObservable.notificarCambioInventario();
 
         } catch (SQLException e) {
 
