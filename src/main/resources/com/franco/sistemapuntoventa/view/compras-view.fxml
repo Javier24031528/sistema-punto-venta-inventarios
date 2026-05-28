@@ -38,4 +38,7 @@
         <Button text="Limpiar" onAction="#limpiarCampos"/>
     </HBox>
 
+    <Button text="Regresar"
+            onAction="#regresarDashboard"/>
+
 </VBox>

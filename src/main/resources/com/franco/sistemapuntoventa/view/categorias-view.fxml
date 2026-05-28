@@ -38,4 +38,7 @@
         </columns>
     </TableView>
 
+    <Button text="Regresar"
+            onAction="#regresarDashboard"/>
+
 </VBox>
