@@ -28,6 +28,8 @@
             onAction="#abrirProveedores"/>
     <Button text="Compras"
             onAction="#abrirCompras"/>
+    <Button text="Reportes"
+            onAction="#abrirReportes"/>
 
     <Label fx:id="lblProductos"/>
     <Label fx:id="lblVentas"/>
