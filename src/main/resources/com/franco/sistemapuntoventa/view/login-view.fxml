@@ -10,21 +10,32 @@
 <VBox alignment="CENTER"
       spacing="15.0"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.franco.sistemapuntoventa.controller.LoginController">
+      fx:controller="com.franco.sistemapuntoventa.controller.LoginController"
+      styleClass="main-container"
+      stylesheets="@estilos.css">
 
     <padding>
         <Insets top="30" right="30" bottom="30" left="30"/>
     </padding>
 
-    <Label text="Sistema Punto de Venta"/>
+    <VBox alignment="CENTER" spacing="12" styleClass="card" maxWidth="260">
+        <Label text="Acceso al Sistema" styleClass="title-label" style="-fx-font-size: 16;"/>
+        
+        <VBox spacing="3" alignment="CENTER_LEFT">
+            <Label text="Usuario" styleClass="subtitle-label" style="-fx-font-size: 12;"/>
+            <TextField fx:id="txtUsuario" promptText="Usuario" prefHeight="30" style="-fx-font-size: 12;"/>
+        </VBox>
 
-    <TextField fx:id="txtUsuario"
-               promptText="Usuario"/>
+        <VBox spacing="3" alignment="CENTER_LEFT">
+            <Label text="Contraseña" styleClass="subtitle-label" style="-fx-font-size: 12;"/>
+            <PasswordField fx:id="txtContrasena" promptText="Contraseña" prefHeight="30" style="-fx-font-size: 12;"/>
+        </VBox>
 
-    <PasswordField fx:id="txtContrasena"
-                   promptText="Contraseña"/>
-
-    <Button text="Iniciar sesión"
-            onAction="#iniciarSesion"/>
+        <Button text="Ingresar"
+                onAction="#iniciarSesion"
+                maxWidth="Infinity"
+                prefHeight="35"
+                style="-fx-font-size: 12;"/>
+    </VBox>
 
 </VBox>

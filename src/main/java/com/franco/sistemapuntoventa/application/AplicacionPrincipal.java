@@ -13,7 +13,7 @@ public class AplicacionPrincipal extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AplicacionPrincipal.class.getResource("/com/franco/sistemapuntoventa/view/login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 350, 400);
         stage.setTitle("Sistema Punto de Venta");
         stage.setScene(scene);
         ConexionBD.getInstancia();

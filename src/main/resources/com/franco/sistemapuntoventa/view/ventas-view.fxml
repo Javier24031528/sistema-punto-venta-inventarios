@@ -8,32 +8,51 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="10"
+<VBox spacing="15"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.franco.sistemapuntoventa.controller.VentaController">
+      fx:controller="com.franco.sistemapuntoventa.controller.VentaController"
+      styleClass="main-container"
+      stylesheets="@estilos.css"
+      prefHeight="400" prefWidth="600">
 
     <padding>
-        <Insets top="15" right="15" bottom="15" left="15"/>
+        <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <Label text="Registro de Ventas"/>
-
-    <HBox spacing="10">
-        <TextField fx:id="txtIdVenta" promptText="ID Venta"/>
-        <TextField fx:id="txtIdDetalleVenta" promptText="ID Detalle"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="←" onAction="#regresarDashboard" styleClass="button-secondary" style="-fx-font-size: 11;"/>
+        <Label text="Ventas" styleClass="title-label" style="-fx-padding: 0;"/>
     </HBox>
 
-    <HBox spacing="10">
-        <ComboBox fx:id="cmbProducto" promptText="Producto"/>
-        <TextField fx:id="txtCantidad" promptText="Cantidad"/>
-    </HBox>
+    <VBox spacing="10" styleClass="card" alignment="CENTER" maxWidth="400">
+        <Label text="Nueva Venta" styleClass="subtitle-label" style="-fx-font-size: 13;"/>
 
-    <HBox spacing="10">
-        <Button text="Registrar venta" onAction="#registrarVenta"/>
-        <Button text="Limpiar" onAction="#limpiarCampos"/>
-    </HBox>
+        <HBox spacing="10">
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label text="ID Venta" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtIdVenta" promptText="ID" style="-fx-font-size: 11;"/>
+            </VBox>
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label text="ID Detalle" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtIdDetalleVenta" promptText="ID" style="-fx-font-size: 11;"/>
+            </VBox>
+        </HBox>
 
-    <Button text="Regresar"
-            onAction="#regresarDashboard"/>
+        <HBox spacing="10">
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label text="Producto" style="-fx-font-size: 11;"/>
+                <ComboBox fx:id="cmbProducto" promptText="Seleccionar" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+            </VBox>
+            <VBox spacing="2" minWidth="80">
+                <Label text="Cantidad" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtCantidad" promptText="0" style="-fx-font-size: 11;"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding: 5 0 0 0;">
+            <Button text="Registrar" onAction="#registrarVenta" styleClass="button-success" prefHeight="30" prefWidth="120" style="-fx-font-size: 11;"/>
+            <Button text="Limpiar" onAction="#limpiarCampos" styleClass="button-secondary" prefHeight="30" prefWidth="80" style="-fx-font-size: 11;"/>
+        </HBox>
+    </VBox>
 
 </VBox>

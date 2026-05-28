@@ -1,0 +1,147 @@
+/* Paleta de colores más sencilla y clara */
+.root {
+    -fx-primary: #5dade2;
+    -fx-secondary: #5d6d7e;
+    -fx-background: #fdfefe;
+    -fx-text: #2e4053;
+    -fx-accent: #58d68d;
+    -fx-danger: #ec7063;
+    -fx-white: #ffffff;
+    -fx-border-base: #d5dbdb;
+}
+
+.main-container {
+    -fx-background-color: -fx-background;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Etiquetas */
+.title-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-secondary;
+    -fx-padding: 5 0 10 0;
+}
+
+.subtitle-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+}
+
+.label {
+    -fx-text-overrun: leading-word-ellipsis;
+}
+
+/* Campos de texto */
+.text-field,
+.password-field,
+.combo-box,
+.text-area {
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-border-color: -fx-border-base;
+    -fx-background-color: -fx-white;
+    -fx-padding: 5;
+}
+
+.text-field:focused,
+.password-field:focused,
+.combo-box:focused,
+.text-area:focused {
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 1;
+}
+
+.text-area .content {
+    -fx-background-color: -fx-white;
+}
+
+/* Botones */
+.button {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 3;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+    -fx-text-overrun: leading-word-ellipsis; /* Evita elipses al final si es posible */
+}
+
+.button .text {
+    -fx-text-alignment: center;
+}
+
+.button:hover {
+    -fx-background-color: #3498db;
+}
+
+.button-success {
+    -fx-background-color: -fx-accent;
+}
+
+.button-success:hover {
+    -fx-background-color: #2ecc71;
+}
+
+.button-danger {
+    -fx-background-color: -fx-danger;
+}
+
+.button-danger:hover {
+    -fx-background-color: #e74c3c;
+}
+
+.button-secondary {
+    -fx-background-color: -fx-secondary;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #34495e;
+}
+
+/* Tablas */
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-border-base;
+    -fx-border-radius: 3;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -fx-secondary;
+    -fx-background-radius: 3 3 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 30;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell {
+    -fx-background-color: -fx-white;
+    -fx-border-color: transparent transparent #f2f3f4 transparent;
+    -fx-font-size: 12px;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9f9;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #ebf5fb;
+}
+
+/* Paneles */
+.card {
+    -fx-background-color: -fx-white;
+    -fx-background-radius: 5;
+    -fx-border-color: #eaeded;
+    -fx-border-radius: 5;
+    -fx-padding: 12;
+}

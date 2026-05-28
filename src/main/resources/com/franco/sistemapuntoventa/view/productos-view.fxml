@@ -12,45 +12,83 @@
 
 <VBox spacing="10"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.franco.sistemapuntoventa.controller.ProductoController">
+      fx:controller="com.franco.sistemapuntoventa.controller.ProductoController"
+      styleClass="main-container"
+      stylesheets="@estilos.css"
+      prefHeight="500" prefWidth="750">
 
     <padding>
         <Insets top="15" right="15" bottom="15" left="15"/>
     </padding>
 
-    <Label text="Gestión de Productos"/>
-
-    <HBox spacing="10">
-        <TextField fx:id="txtIdProducto" promptText="ID"/>
-        <TextField fx:id="txtCodigoBarras" promptText="Código de barras"/>
-        <TextField fx:id="txtNombre" promptText="Nombre"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="←" onAction="#regresarDashboard" styleClass="button-secondary" style="-fx-font-size: 11;"/>
+        <Label text="Productos" styleClass="title-label" style="-fx-padding: 0;"/>
     </HBox>
 
-    <HBox spacing="10">
-        <TextField fx:id="txtPrecioVenta" promptText="Precio"/>
-        <TextField fx:id="txtStockActual" promptText="Stock"/>
-        <ComboBox fx:id="cmbCategoria" promptText="Categoría"/>
+    <HBox spacing="10" VBox.vgrow="ALWAYS">
+        <!-- Formulario -->
+        <VBox spacing="8" styleClass="card" minWidth="240" maxWidth="280">
+            <Label text="Datos" styleClass="subtitle-label"/>
+            
+            <VBox spacing="2">
+                <Label text="ID" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtIdProducto" editable="false" style="-fx-background-color: #eee; -fx-font-size: 11;"/>
+            </VBox>
+            
+            <VBox spacing="2">
+                <Label text="Código" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtCodigoBarras" promptText="Código" style="-fx-font-size: 11;"/>
+            </VBox>
+            
+            <VBox spacing="2">
+                <Label text="Nombre" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtNombre" promptText="Nombre" style="-fx-font-size: 11;"/>
+            </VBox>
+            
+            <VBox spacing="2">
+                <Label text="Precio" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtPrecioVenta" promptText="0.00" style="-fx-font-size: 11;"/>
+            </VBox>
+            
+            <VBox spacing="2">
+                <Label text="Stock" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtStockActual" promptText="0" style="-fx-font-size: 11;"/>
+            </VBox>
+            
+            <VBox spacing="2">
+                <Label text="Categoría" style="-fx-font-size: 11;"/>
+                <ComboBox fx:id="cmbCategoria" promptText="Seleccionar" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+            </VBox>
+
+            <VBox spacing="8" style="-fx-padding: 5 0 0 0;">
+                <HBox spacing="5">
+                    <Button text="Guardar" onAction="#guardarProducto" styleClass="button-success" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                    <Button text="Actualizar" onAction="#actualizarProducto" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                </HBox>
+                <HBox spacing="5">
+                    <Button text="Eliminar" onAction="#eliminarProducto" styleClass="button-danger" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                    <Button text="Limpiar" onAction="#limpiarCampos" styleClass="button-secondary" HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+
+        <!-- Tabla -->
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS" style="-fx-font-size: 11;">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="180"/>
+                    <TableColumn fx:id="colPrecio" text="Precio" prefWidth="70"/>
+                    <TableColumn fx:id="colStock" text="Stock" prefWidth="70"/>
+                    <TableColumn fx:id="colCategoria" text="Categoría" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
     </HBox>
-
-    <HBox spacing="10">
-        <Button text="Guardar" onAction="#guardarProducto"/>
-        <Button text="Actualizar" onAction="#actualizarProducto"/>
-        <Button text="Eliminar" onAction="#eliminarProducto"/>
-        <Button text="Limpiar" onAction="#limpiarCampos"/>
-    </HBox>
-
-    <TableView fx:id="tablaProductos">
-        <columns>
-            <TableColumn fx:id="colId" text="ID"/>
-            <TableColumn fx:id="colCodigo" text="Código"/>
-            <TableColumn fx:id="colNombre" text="Nombre"/>
-            <TableColumn fx:id="colPrecio" text="Precio"/>
-            <TableColumn fx:id="colStock" text="Stock"/>
-            <TableColumn fx:id="colCategoria" text="Categoría"/>
-        </columns>
-    </TableView>
-
-    <Button text="Regresar"
-            onAction="#regresarDashboard"/>
 
 </VBox>

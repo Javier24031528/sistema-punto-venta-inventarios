@@ -11,34 +11,55 @@
 
 <VBox spacing="10"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.franco.sistemapuntoventa.controller.CategoriaController">
+      fx:controller="com.franco.sistemapuntoventa.controller.CategoriaController"
+      styleClass="main-container"
+      stylesheets="@estilos.css"
+      prefHeight="450" prefWidth="650">
 
     <padding>
         <Insets top="15" right="15" bottom="15" left="15"/>
     </padding>
 
-    <Label text="Gestión de Categorías"/>
-
-    <HBox spacing="10">
-        <TextField fx:id="txtIdCategoria" promptText="ID"/>
-        <TextField fx:id="txtNombreCategoria" promptText="Nombre de categoría"/>
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="←" onAction="#regresarDashboard" styleClass="button-secondary" style="-fx-font-size: 11;"/>
+        <Label text="Categorías" styleClass="title-label" style="-fx-padding: 0;"/>
     </HBox>
 
-    <HBox spacing="10">
-        <Button text="Guardar" onAction="#guardarCategoria"/>
-        <Button text="Actualizar" onAction="#actualizarCategoria"/>
-        <Button text="Eliminar" onAction="#eliminarCategoria"/>
-        <Button text="Limpiar" onAction="#limpiarCampos"/>
+    <HBox spacing="10" VBox.vgrow="ALWAYS">
+        <!-- Formulario -->
+        <VBox spacing="8" styleClass="card" minWidth="200" maxWidth="240">
+            <Label text="Datos" styleClass="subtitle-label" style="-fx-font-size: 13;"/>
+            
+            <VBox spacing="2">
+                <Label text="ID" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtIdCategoria" editable="false" style="-fx-background-color: #eee; -fx-font-size: 11;"/>
+            </VBox>
+            
+            <VBox spacing="2">
+                <Label text="Nombre" style="-fx-font-size: 11;"/>
+                <TextField fx:id="txtNombreCategoria" promptText="Nombre" style="-fx-font-size: 11;"/>
+            </VBox>
+
+            <VBox spacing="5" style="-fx-padding: 5 0 0 0;">
+                <Button text="Guardar" onAction="#guardarCategoria" styleClass="button-success" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                <Button text="Actualizar" onAction="#actualizarCategoria" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                <Button text="Eliminar" onAction="#eliminarCategoria" styleClass="button-danger" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+                <Button text="Limpiar" onAction="#limpiarCampos" styleClass="button-secondary" maxWidth="Infinity" style="-fx-font-size: 11;"/>
+            </VBox>
+        </VBox>
+
+        <!-- Tabla -->
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <TableView fx:id="tablaCategorias" VBox.vgrow="ALWAYS" style="-fx-font-size: 11;">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="colIdCategoria" text="ID" prefWidth="60"/>
+                    <TableColumn fx:id="colNombreCategoria" text="Nombre" prefWidth="300"/>
+                </columns>
+            </TableView>
+        </VBox>
     </HBox>
-
-    <TableView fx:id="tablaCategorias">
-        <columns>
-            <TableColumn fx:id="colIdCategoria" text="ID"/>
-            <TableColumn fx:id="colNombreCategoria" text="Categoría"/>
-        </columns>
-    </TableView>
-
-    <Button text="Regresar"
-            onAction="#regresarDashboard"/>
 
 </VBox>
